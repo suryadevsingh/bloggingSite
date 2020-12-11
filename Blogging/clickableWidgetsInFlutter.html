@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=divice-width, initial-scale=1.0">
+  <title>CodePen - CodeMirror GitHub theme with Copy to clipboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="blogReadMore.css">
+<link rel="stylesheet" href="blogReadMore2.css">
+</head>
+<body>
+
+  <!-- blog -->
+
+  <div class="post">
+
+    <div class="date">26 November,2020</div>
+
+    <h2>Deep Dive Into Buttons & Clickable Widgets In Flutter</h2>
+
+    <img src="https://miro.medium.com/max/459/1*eV8jb9lxOBdgaIg2D2_lkg.png" height="100px" width="100px " alt="There was supposed to be an image here"></br>
+    <p>
+        We can not imagine any language that has not click event because without click it’s very hard to trigger any actions . So here in flutter we are talking about buttons and clickable widgets very quickly in the flutter.
+    </p>
+    <img src="https://media.giphy.com/media/13RH0eYA9vEAso/giphy.gif" alt="There was supposed to be an image here"></br>
+
+<p>In this blog we are going to discuss pre-define buttons and clickable widgets in flutter as follows :</p>
+
+
+
+<ol>
+    <li>FlatButton</li>
+    <li>RaisedButton</li>
+    <li>FloatingActionButton</li>
+    <li>IconButton</li>
+    <li>InkWell</li>
+    <li>GestureDetector</li>
+    <li>DropdownButton</li>
+    <li>MaterialButton</li>
+    <li>OutlineButton</li>
+    <li>RadioButton</li>
+    <li>RadioListTileButton</li>
+    <li>PopupMenuButton</li>
+</ol> 
+  
+<img src="https://media.giphy.com/media/SJjWgVgBhkNhJ29Ins/giphy.gif" alt="There was supposed to be an image here"></br>
+
+<h3>FlatButton</h3>
+<ol>
+    <li>Simple button that has not much highlighted decoration, Mostly use on toolbar, dialog and etc.</li>
+    <li>FlatButton has two required property child and onPressed()</li>
+</ol>
+<p class="code">
+    FlatButton(</br>
+          child: Text('I am FlatButton'),</br>
+          onPressed: (){</br>
+            print('You tapped on FlatButton');</br>
+          },</br>
+        ),</br>
+</p>
+<P>Here we are using child as Text Widget but you can use as you want and suitable for Flutter. onPressed() is simple voidCallback that is call back with no argument and no return.</P>
+<p class="quote">Below are more property of FlatButton widget.</p>
+<p class="code">
+    Key key,</br>
+    @required VoidCallback onPressed,</br>
+    ValueChanged<bool> onHighlightChanged,</br>
+    ButtonTextTheme textTheme,</br>
+    Color textColor,</br>
+    Color disabledTextColor,</br>
+    Color color,</br>
+    Color disabledColor,</br>
+    Color highlightColor,</br>
+    Color splashColor,</br>
+    Brightness colorBrightness,</br>
+    EdgeInsetsGeometry padding,</br>
+    ShapeBorder shape,</br>
+    Clip clipBehavior = Clip.none,</br>
+    MaterialTapTargetSize materialTapTargetSize,</br>
+    @required Widget child,</br>
+</p>
+<img src="https://miro.medium.com/max/459/1*M9nAHgW7nJu61rT7rkCVHw.jpeg" alt="There was supposed to be an image here"></br>
+
+<p class="quote">
+  Note</br>
+  You can find all the properties of any widget/method by short-cut Mac User — (Command+ClickOnWidget/Method) for others may be use Ctrl instead of Command.</p>
+
+<h3>RaisedButton</h3>
+<ol>
+  <li>It’s material button same like flatButton but it has elevation that will increase when it pressed.</li>
+  <li>Do not used with Widgets that has already raise-content like dialog, card etc. Use with flat content like long list, wide range of widget .</li>
+</ol>
+
+<p class="code">RaisedButton(</br>
+  child: Text('I am RaisedButton'),</br>
+  onPressed: (){</br>
+    print('You tapped on RaisedButton');</br>
+  },</br>
+),</p>
+
+<p>Below are more property of RaisedButton widget.</p>
+<p class="code">
+  RaisedButton({
+    Key key,</br>
+    @required VoidCallback onPressed,</br>
+    VoidCallback onLongPress,</br>
+    ValueChanged<bool> onHighlightChanged,</br>
+    ButtonTextTheme textTheme,</br>
+    Color textColor,</br>
+    Color disabledTextColor,</br>
+    Color color,</br>
+    Color disabledColor,</br>
+    Color focusColor,</br>
+    Color hoverColor,</br>
+    Color highlightColor,</br>
+    Color splashColor,</br>
+    Brightness colorBrightness,</br>
+    double elevation,</br>
+    double focusElevation,</br>
+    double hoverElevation,</br>
+    double highlightElevation,</br>
+    double disabledElevation,</br>
+    EdgeInsetsGeometry padding,</br>
+    ShapeBorder shape,</br>
+    Clip clipBehavior = Clip.none,</br>
+    FocusNode focusNode,</br>
+    bool autofocus = false,</br>
+    MaterialTapTargetSize materialTapTargetSize,</br>
+    Duration animationDuration,</br>
+    Widget child,</br>
+  })</br>
+</p>
+
+<img src="https://miro.medium.com/max/459/1*ZhbqlZrGpxO3xiP55XSdfQ.jpeg" alt="There was supposed to be an image here"></br>
+
+<h3>FloatingActionButton</h3>
+<ol>
+  <li>Simple circular icon with hover, mostly single per screen.</li>
+  <li>Display on screen for trigger positive action like, add, share or navigate to screen and etc.</li>
+  <li>Use child as Icon widget, not any rule you can also use whatever</li>
+  <li>Mostly use with Scaffold widget that has property name is floatingActionButton</li>
+</ol>
+<p class="code">
+  FloatingActionButton(</br>
+          child: Icon(Icons.add),</br>
+          onPressed: (){</br>
+            print('You tapped on FloatingActionButton');</br>
+          },</br>
+        ),</br>
+</p>
+<p>Below are more property of FloatingActionButton widget.</p>
+
+<p class="code">
+  FloatingActionButton({</br>
+    Key key,</br>
+    this.child,</br>
+    this.tooltip,</br>
+    this.foregroundColor,</br>
+    this.backgroundColor,</br>
+    this.focusColor,</br>
+    this.hoverColor,</br>
+    this.splashColor,</br>
+    this.heroTag = const _DefaultHeroTag(),</br>
+    this.elevation,</br>
+    this.focusElevation,</br>
+    this.hoverElevation,</br>
+    this.highlightElevation,</br>
+    this.disabledElevation,</br>
+    @required this.onPressed,</br>
+    this.mini = false,</br>
+    this.shape,</br>
+    this.clipBehavior = Clip.none,</br>
+    this.focusNode,</br>
+    this.autofocus = false,</br>
+    this.materialTapTargetSize,</br>
+    this.isExtended = false,</br>
+  })</br>
+</p>
+<img src="https://miro.medium.com/max/459/1*yxAcxa7ogcnrp5nKfK2PKA.jpeg" alt="There was supposed to be an image here"></br>
+
+<h3>IconButton</h3>
+<ol>
+  <li>Simple display touchable icon, Trigger action when clicked.</li>
+  <li>Mostly use with AppBar widget with actions property.</li>
+</ol>
+<p class="code">
+  IconButton(</br>
+    icon: Icon(Icons.volume_up),</br>
+    tooltip: 'Increase volume by 10%',</br>
+    onPressed: () { print('Volume button clicked');},</br>
+);</br>
+</p>
+<p>Below are more property of IconButton widget.</p>
+<p class="code">
+  IconButton({</br>
+    Key key,</br>
+    this.iconSize = 24.0,</br>
+    this.padding = const EdgeInsets.all(8.0),</br>
+    this.alignment = Alignment.center,</br>
+    @required this.icon,</br>
+    this.color,</br>
+    this.focusColor,</br>
+    this.hoverColor,</br>
+    this.highlightColor,</br>
+    this.splashColor,</br>
+    this.disabledColor,</br>
+    @required this.onPressed,</br>
+    this.focusNode,</br>
+    this.autofocus = false,</br>
+    this.tooltip,</br>
+    this.enableFeedback = true,</br>
+  })</br>
+</p>
+<img src="https://miro.medium.com/max/459/1*0uRU7y2DuQNdOHUqR-wEwg.jpeg" alt="There was supposed to be an image here"></br>
+
+<h3>DropdownButton</h3>
+<ol>
+  <li>A material design button for selecting from a list of items.</li>
+  <li>The button shows the currently selected item as well as an arrow that opens a menu for selecting another item.</li>
+  <li>The onChanged callback should update a state variable that defines the dropdown’s value.</li>
+</ol>
+
+<p class="code">
+  DropdownButton(</br>
+  value: _selectedGender,</br>
+  items: _dropDownItem(),</br>
+  onChanged: (value){</br>
+    _selectedGender =value;</br>
+    setState(() {</br>
+    </br>
+    });</br>
+  },</br>
+  hint: Text("  Select Gender  "),</br>
+),</br>
+</p>
+
+<p>Below are more property of DropdownButton widget.</p>
+<p class="code">
+  DropdownButton({</br>
+    Key key,</br>
+    @required this.items,</br>
+    this.selectedItemBuilder,</br>
+    this.value,</br>
+    this.hint,</br>
+    this.disabledHint,</br>
+    @required this.onChanged,</br>
+    this.elevation = 8,</br>
+    this.style,</br>
+    this.underline,</br>
+    this.icon,</br>
+    this.iconDisabledColor,</br>
+    this.iconEnabledColor,</br>
+    this.iconSize = 24.0,</br>
+    this.isDense = false,</br>
+    this.isExpanded = false,</br>
+    this.itemHeight = kMinInteractiveDimension,</br>
+    this.focusColor,</br>
+    this.focusNode,</br>
+    this.autofocus = false,</br>
+  })</br>
+</p>
+
+<img src="https://miro.medium.com/max/459/1*1NpI_VX2h8NC5ZlZODVmAQ.jpeg" alt="There was supposed to be an image here"></br>
+
+<img src="https://miro.medium.com/max/459/1*91RvKiyQ1owJmCp1X64ehQ.jpeg" alt="There was supposed to be an image here"></br>
+
+
+<h3>MaterialButton</h3>
+<ol>
+  <li>The button’s size will expand to fit the child widget</li>
+  <li>MaterialButtons whose onPressed and onLongPress callbacks are null will be disabled.</li>
+</ol>
+<p class="cpde">
+  MaterialButton(</br>
+minWidth: 200.0,</br>
+height: 35,</br>
+color: Color(0xFF801E48),</br>
+child: new Text('I am Material Button',</br>
+style: new TextStyle(fontSize: 16.0, color: Colors.white)),</br>
+onPressed: () {},</br>
+),</br>
+</p>
+
+<p>Below are more property of MaterialButton widget.</p>
+
+<p class="code">
+  MaterialButton({</br>
+    Key key,</br>
+    @required this.onPressed,</br>
+    this.onLongPress,</br>
+    this.onHighlightChanged,</br>
+    this.textTheme,</br>
+    this.textColor,</br>
+    this.disabledTextColor,</br>
+    this.color,</br>
+    this.disabledColor,</br>
+    this.focusColor,</br>
+    this.hoverColor,</br>
+    this.highlightColor,</br>
+    this.splashColor,</br>
+    this.colorBrightness,</br>
+    this.elevation,</br>
+    this.focusElevation,</br>
+    this.hoverElevation,</br>
+    this.highlightElevation,</br>
+    this.disabledElevation,</br>
+    this.padding,</br>
+    this.shape,</br>
+    this.clipBehavior = Clip.none,</br>
+    this.focusNode,</br>
+    this.autofocus = false,</br>
+    this.materialTapTargetSize,</br>
+    this.animationDuration,</br>
+    this.minWidth,</br>
+    this.height,</br>
+    this.enableFeedback = true,</br>
+    this.child,</br>
+  })</br>
+</p>
+
+<img src="https://miro.medium.com/max/459/1*0Jq94yePDpLv70BA22M5Ng.jpeg" alt="There was supposed to be an image here"></br>
+
+<h3>OutlineButton</h3>
+<ol>
+  <li>Similar to a FlatButton with a thin grey rounded rectangle border.</li>
+  <li>The outline button’s border shape is defined by shape and its appearance is defined by borderSide, disabledBorderColor, and highlightedBorderColor.</li>
+  <li>By default the border is a one pixel wide grey rounded rectangle that does not change when the button is pressed or disabled.</li>
+  <li>By default the button’s background is transparent.</li>
+  <li>If the onPressed or onLongPress callbacks are null, then the button will be disabled and by default will resemble a flat button in the disabledColor.</li>
+</ol>
+
+<p class="code">
+  OutlineButton(</br>
+    child: new Text("Button text"),</br>
+    onPressed: null,</br>
+    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))</br>
+),</br>
+</p>
+
+<p>Below are more property of OutlineButton widget.</p>
+
+<p class="code">
+  OutlineButton({</br>
+    Key key,</br>
+    @required VoidCallback onPressed,</br>
+    VoidCallback onLongPress,</br>
+    ButtonTextTheme textTheme,</br>
+    Color textColor,</br>
+    Color disabledTextColor,</br>
+    Color color,</br>
+    Color focusColor,</br>
+    Color hoverColor,</br>
+    Color highlightColor,</br>
+    Color splashColor,</br>
+    double highlightElevation,</br>
+    this.borderSide,</br>
+    this.disabledBorderColor,</br>
+    this.highlightedBorderColor,</br>
+    EdgeInsetsGeometry padding,</br>
+    ShapeBorder shape,</br>
+    Clip clipBehavior = Clip.none,</br>
+    FocusNode focusNode,</br>
+    bool autofocus = false,</br>
+    Widget child,</br>
+  })
+</p>
+
+
+<img src="https://miro.medium.com/max/459/1*tCOMg-hU3kGv-DYIK2aJeg.jpeg" alt="There was supposed to be an image here"></br>
+
+
+<h3>RadioButton</h3>
+<ol>
+  <li>The radio button itself does not maintain any state.</li>
+  <li>the radio invokes the onChanged callback, passing value as a parameter.</li>
+  <li>Most widgets will respond to onChanged by calling State.setState to update the radio button’s groupValue.</li>
+</ol>
+<p class="code">
+  Radio(</br>
+      value: 1,</br>
+      groupValue: selectedRadio,</br>
+      activeColor: Colors.green,</br>
+      onChanged: (val) {</br>
+        print("Radio $val");</br>
+        setSelectedRadio(val);</br>
+      },</br>
+    ),</br>
+</p>
+<p>Below are more property of Radio widget.</p>
+<p class="code">
+  Radio({</br>
+    Key key,</br>
+    @required this.value,</br>
+    @required this.groupValue,</br>
+    @required this.onChanged,</br>
+    this.activeColor,</br>
+    this.focusColor,</br>
+    this.hoverColor,</br>
+    this.materialTapTargetSize,</br>
+    this.focusNode,</br>
+    this.autofocus = false,</br>
+  })</br>
+</p>
+<img src="https://miro.medium.com/max/459/1*VeatzJq-oZtnyeUSat_Cmg.jpeg" alt="There was supposed to be an image here"></br>
+
+<h3>RadioListTile</h3>
+<ol>
+  <li>A ListTile with a Radio. In other words, a radio button with a label.</li>
+  <li>The entire list tile is interactive: tapping anywhere in the tile selects the radio button.</li>
+  <li>The value, groupValue, onChanged, and activeColor properties of this widget are identical to the similarly-named properties on the Radio widget</li>
+  <li>The title, subtitle, isThreeLine, and dense properties are like those of the same name on ListTile.</li>
+  
+</ol>
+
+<p class="code">
+  RadioListTile(</br>
+  value: 2,</br>
+  groupValue: selectedRadioTile,</br>
+  title: Text("Radio 2"),</br>
+  subtitle: Text("Radio 2 Subtitle"),</br>
+  onChanged: (val) {</br>
+    print("Radio Tile pressed $val");</br>
+    setSelectedRadioTile(val);</br>
+  },</br>
+  activeColor: Colors.red,</br>
+  secondary: OutlineButton(</br>
+    child: Text("Say Hi"),</br>
+    onPressed: () {</br>
+      print("Say Hello");</br>
+    },</br>
+  ),</br>
+  selected: false,</br>
+),</br>
+</p>
+<p>Below are more property of RadioListTile widget.</p>
+
+<p class="code">RadioListTile({</br>
+  Key key,</br>
+  @required this.value,</br>
+  @required this.groupValue,</br>
+  @required this.onChanged,</br>
+  this.activeColor,</br>
+  this.title,</br>
+  this.subtitle,</br>
+  this.isThreeLine = false,</br>
+  this.dense,</br>
+  this.secondary,</br>
+  this.selected = false,</br>
+  this.controlAffinity = ListTileControlAffinity.platform,</br>
+})</p>
+
+<img src="https://miro.medium.com/max/459/1*TNmc78_446wpYF2wpcIggQ.jpeg" alt="There was supposed to be an image here"></br>
+
+<h3>PopupMenuButton</h3>
+<ol>
+  <li>Displays a menu when pressed and calls onSelected when the menu is dismissed because an item was selected.</li>
+  <li>The value passed to onSelected is the value of the selected menu item.</li>
+  <li>One of child or icon may be provided, but not both. If icon is provided, then PopupMenuButton behaves like an IconButton.</li>
+  <li>If both are null, then a standard overflow icon is created (depending on the platform).</li>
+</ol>
+
+<p class="code">
+  PopupMenuButton<int>(</br>
+    itemBuilder: (context) => [</br>
+    PopupMenuItem(</br>
+    value: 1,</br>
+    child: Text("First"),),</br>
+    PopupMenuItem(</br>
+    value: 2,</br>
+    child: Text("Second"),),</br>
+    ],</br>
+    ),</br>
+</p>
+<p>Below are more property of PopupMenuButton widget.</p>
+<p class="code">
+  PopupMenuButton({</br>
+    Key key,</br>
+    @required this.itemBuilder,</br>
+    this.initialValue,</br>
+    this.onSelected,</br>
+    this.onCanceled,</br>
+    this.tooltip,</br>
+    this.elevation,</br>
+    this.padding = const EdgeInsets.all(8.0),</br>
+    this.child,</br>
+    this.icon,</br>
+    this.offset = Offset.zero,</br>
+    this.enabled = true,</br>
+    this.shape,</br>
+    this.color,</br>
+    this.captureInheritedThemes = true,</br>
+  })</br>
+</p>
+
+<img src="https://miro.medium.com/max/459/1*03ppaeAz_-ag2MwUW9NDuw.jpeg" alt="There was supposed to be an image here"></br>
+
+
+
+<h2>Clickable widget</h2>
+
+<img src="https://media.giphy.com/media/WUq1cg9K7uzHa/giphy.gif" alt="There was supposed to be an image here"></br>
+
+<p>We can make any widget clickable or you can give any widget capability to detect the gesture.</p>
+<p>There are two widgets which helps us in flutter to give this functionality</p>
+<ol>
+  <li>InkWell</li>
+<li>GestureDetector</li>
+</ol>
+
+<h3>InkWell</h3>
+<ol>
+  <li>A rectangle area of the material that response on touch.</li>
+  <li>Simply you can wrap it to any material widget so that will be clickable.</li>
+</ol>
+<p class="code">InkWell(</br>
+  onTap: () {</br>
+    print('Clicked on URL by InkWell Widget');</br>
+  },</br>
+  child: Text("https://quickstartflutterdart.blogspot.in/",</br>
+      style: TextStyle(</br>
+        color: Colors.blue,</br>
+        fontSize: 13,</br>
+        decoration: TextDecoration.underline)),</br>
+   );</br>
+  </p>
+
+   <img src="https://miro.medium.com/max/459/1*KyBIat-_1PCqEmo2HQPzjg.jpeg" alt="There was supposed to be an image here"></br>
+
+<h3>GestureDetector</h3>
+<ol>
+  <li>It’s work same like InkWell widget but it has more powerful click events.</li>
+  <li>It has many click/drag and other events.</li>
+</ol>
+<p class="code">
+  GestureDetector(</br>
+      onTap: () {</br>
+        print('Clicked on URL by GestureDetector Widget');</br>
+      },</br>
+      child: Text("https://quickstartflutterdart.blogspot.in/", </br>
+        style: TextStyle(</br>
+        color: Colors.blue, </br>
+        fontSize: 13,</br>
+        decoration: TextDecoration.underline)</br>
+      ),</br>
+    );</br>
+</p>
+
+<p>It works same. But instead of onTap() it has so many other event.</p>
+<p class="code">
+  this.child,</br>
+this.onTapDown,</br>
+this.onTapUp,</br>
+this.onTap,</br>
+this.onTapCancel,</br>
+this.onDoubleTap,</br>
+this.onLongPress,</br>
+this.onLongPressUp,</br>
+this.onVerticalDragDown,</br>
+this.onVerticalDragStart,</br>
+this.onVerticalDragUpdate,</br>
+this.onVerticalDragEnd,</br>
+this.onVerticalDragCancel,</br>
+this.onHorizontalDragDown,</br>
+this.onHorizontalDragStart,</br>
+this.onHorizontalDragUpdate,</br>
+this.onHorizontalDragEnd,</br>
+this.onHorizontalDragCancel,</br>
+this.onForcePressStart,</br>
+this.onForcePressPeak,</br>
+this.onForcePressUpdate,</br>
+this.onForcePressEnd,</br>
+this.onPanDown,</br>
+this.onPanStart,</br>
+this.onPanUpdate,</br>
+this.onPanEnd,</br>
+this.onPanCancel,</br>
+this.onScaleStart,</br>
+this.onScaleUpdate,</br>
+this.onScaleEnd,</br>
+this.behavior,</br>
+this.excludeFromSemantics = false</br>
+</p>
+
+<img src="https://miro.medium.com/max/459/1*njVdC-L_m4D4HsT98jW5sw.jpeg" alt="There was supposed to be an image here"></br>
+
+
+
+
+
+<hr>
+
+
+  <!-- blog -->
+
+
+
+
+
+
+
+</body>
+</html>

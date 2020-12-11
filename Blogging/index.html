@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
+    <!-- <title>Responsive Drop-down Menu Bar</title> -->
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="fotter.css">
+    <link rel="stylesheet" href="slider.css">
+    <script src="script.js"></script>
+    <link rel="shortcut icon" href="bg-1.jpg" type="image/png">
+    <!-- <link rel="stylesheet" href="flexbox.css"> -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+CodingNepal</div>
+<label for="btn" class="icon">
+        <span class="fa fa-bars"></span>
+      </label>
+      <input type="checkbox" id="btn">
+      <ul>
+<li><a href="#">Home</a></li>
+<li>
+          <label for="btn-1" class="show">Features +</label>
+          <a href="#">Resources</a>
+          <input type="checkbox" id="btn-1">
+          <ul>
+<li><a href="#">Books</a></li>
+<li><a href="#">Source code</a></li>
+<!-- <li><a href="#">Icons</a></li> -->
+</ul>
+</li>
+<li>
+          <label for="btn-2" class="show">Design +</label>
+          <a href="#">Design</a>
+          <input type="checkbox" id="btn-2">
+          <ul>
+<li><a href="#">Web Design</a></li>
+<li><a href="#">App Design</a></li>
+<!-- <li>
+              <label for="btn-3" class="show">More +</label>
+              <a href="#">More <span class="fa fa-plus"></span></a>
+              <input type="checkbox" id="btn-3">
+              <ul>
+<li><a href="#">Submenu-1</a></li>
+<li><a href="#">Submenu-2</a></li>
+<li><a href="#">Submenu-3</a></li>
+</ul>
+</li> -->
+</ul>
+</li>
+<li><a href="#">Portfolio</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+    <!-- <div class="content">
+      <header>Responsive Drop-down Menu Bar</header>
+      <p>
+HTML and CSS (Media Query)</p>
+</div> -->
+<script>
+      $('.icon').click(function(){
+        $('span').toggleClass("cancel");
+      });
+    </script>
+
+
+<!-- Card -->
+
+<div class="wrapper">
+  <a href="blogPostListing.html">
+    <div class="box">
+      <div class="front-face">
+        <div class="icon">
+<!-- <i class="fas fa-code"></i> -->
+<i class="fas fa-laptop-code"></i>
+</div>
+<span>Web Development</span>
+      </div>
+<div class="back-face">
+  
+        <span>Web Development</span>
+        <p class="description">
+          Web development is the process of building websites and applications for the internet. Web development is not concerned with the design of a website; rather, it’s all about the coding and programming that powers the website’s functionality.</p>
+</div>
+</div>
+  </a>
+   
+<div class="box">
+      <div class="front-face">
+        <div class="icon">
+<!-- <i class="fas fa-chart-line"></i> -->
+<i class="fas fa-mobile-alt"></i>
+</div>
+<span>UI/UX</span>
+      </div>
+<div class="back-face">
+        <span>UI/UX</span>
+        <p class="description">
+          The debates over the definitions of UX and UI have been going on for almost as long as the terms have been around. UX stands for User Experience, and UI stands for User Interface.</p>
+</div>
+</div>
+
+<div class="box">
+  <div class="front-face">
+    <div class="icon">
+<!-- <i class="fas fa-chart-line"></i> -->
+<i class="fas fa-mobile-alt"></i>
+</div>
+<span>App Development</span>
+  </div>
+<div class="back-face">
+    <span>App Development</span>
+    <p class="description">
+      App Development refers to the creation of computer applications for use on mobile devices such as tablets, smartphones and smart watches.</p>
+</div>
+</div>
+
+<div class="box">
+  <div class="front-face">
+    <div class="icon">
+<!-- <i class="fas fa-chart-line"></i> -->
+<i class="fas fa-mobile-alt"></i>
+</div>
+<span>Cloud</span>
+  </div>
+<div class="back-face">
+    <span>Cloud</span>
+    <p class="description">
+      Cloud computing is the on-demand availability of computer system resources, especially data storage (cloud storage) and computing power, without direct active management by the user. The term is generally used to describe data centers available to many users over the Internet.</p>
+</div>
+</div>
+
+<div class="box">
+  <div class="front-face">
+    <div class="icon">
+<!-- <i class="fas fa-chart-line"></i> -->
+<i class="fas fa-mobile-alt"></i>
+</div>
+<span>Cheat sheet</span>
+  </div>
+<div class="back-face">
+    <span>Cheat sheet</span>
+    <p class="description">
+      Quick reference for interviews and experts how wanted to learn new tech</p>
+</div>
+</div>
+<div class="box">
+      <div class="front-face">
+        <div class="icon">
+<!-- <i class="fas fa-rocket"></i> -->
+<i class="fas fa-robot"></i>
+</div>
+<span>Machine Learning</span>
+      </div>
+<div class="back-face">
+        <span>Machine Learning</span>
+        <p class="description">
+          Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed. Computer programs that can access data and use it learn for themselves.</p>
+</div>
+</div>
+</div>
+
+<!-- card -->
+
+
+<!-- slider -->
+
+
+
+<!-- <div class="slider">
+  <div class="slides">
+      <div class="slide">
+          <div class="slide-data">
+              <h1>This is Slide # 1</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit veniam fuga voluptatem voluptas illum deserunt soluta quasi ipsam quam qui eligendi autem laudantium inventore, voluptatibus blanditiis nobis, tempora architecto atque.</p>
+              <button>SUBSCRIBE</button>
+          </div>
+      </div>
+      <div class="slide">
+          <div class="slide-data">
+              <h1>This is Slide # 2</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit veniam fuga voluptatem voluptas illum deserunt soluta quasi ipsam quam qui eligendi autem laudantium inventore, voluptatibus blanditiis nobis, tempora architecto atque.</p>
+              <button>COMMENT</button>
+          </div>
+      </div>
+      <div class="slide">
+          <div class="slide-data">
+              <h1>This is Slide # 3</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit veniam fuga voluptatem voluptas illum deserunt soluta quasi ipsam quam qui eligendi autem laudantium inventore, voluptatibus blanditiis nobis, tempora architecto atque.</p>
+              <button>SHARE</button>
+          </div>
+      </div>
+  </div>
+
+  <button class="arrows prev" onclick="plusslide(-1)">
+      <span><i class="fas fa-angle-left"></i></span>
+  </button>
+  <button class="arrows next" onclick="plusslide(1)">
+      <span><i class="fas fa-angle-right"></i></span>
+  </button>
+
+  <div class="dots">
+      <span onclick="currentslide(1)"></span>
+      <span onclick="currentslide(2)"></span>
+      <span onclick="currentslide(3)"></span>
+  </div>
+</div>
+
+
+<script src="script.js"></script> -->
+
+
+
+<!-- slider -->
+
+
+<!-- flexbox -->
+
+
+<!-- <div class="wrapper1">
+  <article class="main">
+      <p>
+          my name is suryadevsingh
+      </p>
+  </article>
+      <aside class="aside aside1">
+          <h1>Aside1</h1>
+      </aside>
+      <aside class="aside aside2">
+          <h1>Aside2</h1>
+      </aside>
+ 
+</div> -->
+
+<!-- flexbox -->
+
+
+<!-- fotter -->
+<footer>
+  <div class="footer-content">
+      <h3>code opacity</h3>
+      <p>Technical blogging is a great way to share your expertise while building a potentially valuable readership. It can help you to document projects, or provide guidance to other users.</p>
+  <ul class="socials">
+      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+      <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+      <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+  
+  </ul>
+  </div>
+<div class="footer-bottom">
+  <p>copyright &copy;2020 codeOpacity. designed by <span>suryadev</span></p>
+</div>
+
+</footer>
+
+<!-- fotter -->
+
+
+
+  </body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=divice-width, initial-scale=1.0">
+  <title>CodePen - CodeMirror GitHub theme with Copy to clipboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="blogReadMore.css">
+<link rel="stylesheet" href="blogReadMore2.css">
+</head>
+<body>
+
+  <!-- blog -->
+
+  <div class="post">
+
+    <div class="date">26 November,2020</div>
+
+    <h2>How To Validate Forms In Flutter ?</h2>
+
+    <img src="https://miro.medium.com/max/459/1*ENNGTFIAuH2k9UL9o6-JZQ.jpeg" height="100px" width="100px " alt="There was supposed to be an image here"></br>
+    
+    <p>
+        Apps often require users to enter information into a text field. For example, you might require users to log in with an email address and password combination.</p>
+
+    <img src="https://media.giphy.com/media/xT0xehxwagcgaqpNf2/giphy.gif" alt="There was supposed to be an image here"></br>
+
+<h3>To make apps secure and easy to use we check following pointors :</h3>
+
+<ol>
+    <li>whether the information the user has provided is valid.</li>
+    <li>If the user has correctly filled out the form, process the information.</li>
+    <li>If the user submits incorrect information, display a friendly error message letting them know what went wrong.</li>
+  </ol> 
+  
+  <img src="https://miro.medium.com/max/459/1*H_9ix91JZmr3KibSeOK0rQ.jpeg" height="100px" width="100px " alt="There was supposed to be an image here"></br>
+    
+  <h3>How to add validation to a form that has a single text field using the following steps:</h3>
+
+  <ol>
+      <li>Create a Form with a GlobalKey .</li>
+      <li>Add a TextFormField with validation logic.</li>
+      <li>Create a button to validate and submit the form.</li>
+    </ol>
+
+  <h3>Form</h3>
+<p>
+    Forms are an integral part of all modern mobile and web applications. It is mainly used to interact with the app as well as gather information from the users. They can perform many tasks, which depend on the nature of your business requirements and logic, such as authentication of the user, adding user, searching, filtering, ordering, booking, etc. A form can contain text fields, buttons, checkboxes, radio buttons, etc.
+</p>
+
+<p class="quote">When you create a form, it is necessary to provide the GlobalKey. This key uniquely identifies the form and allows you to do any validation in the form fields.</p>
+
+<img src="https://miro.medium.com/max/211/1*1ZEExxkhUxa4oCXqSWzDjw.gif" alt="There was supposed to be an image here"></br>
+
+<p>The form widget uses child widget TextFormField to provide the users to enter the text field. This widget renders a material design text field and also allows us to display validation errors when they occur .</p>
+<img src="https://media.giphy.com/media/rCfs9ADbwmJna/giphy.gif" alt="There was supposed to be an image here"></br>
+
+<img src="https://miro.medium.com/max/394/1*aWaYJYOwbeD4b1MfV5Zp9w.jpeg" alt="There was supposed to be an image here"></br>
+
+<p>
+    Inside this class, we define a global key as _formKey. This key holds a FormState and can use to retrieve the form widget.
+</p>
+<img src="https://miro.medium.com/max/390/1*aLfDjRJLxhU_jSZ9h_jjLg.jpeg" alt="There was supposed to be an image here"></br>
+
+<h3>Why we are using Textformfield ? can we use TextField ?🤔🤔🤔🤔🕵️‍♂️🕵️‍♂️🕵️‍♂️</h3>
+<p class="quote">TextFormField wraps a TextField and integrates it with the enclosing Form . This provides additional functionality, such as validation and integration with other FormField widgets.</p>
+<img src="https://miro.medium.com/max/390/1*QMITdS6XtnaQOYwejkLuUA.jpeg" alt="There was supposed to be an image here"></br>
+
+<h4>Deep dive into TextFormField</h4>
+<p class="code">
+    TextFormField({</br>
+        Key key,</br>
+        this.controller,</br>
+        String initialValue,</br>
+        FocusNode focusNode,</br>
+        InputDecoration decoration = const InputDecoration(),</br>
+        TextInputType keyboardType,</br>
+        TextCapitalization textCapitalization = TextCapitalization.none,</br>
+        TextInputAction textInputAction,</br>
+        TextStyle style,</br>
+        StrutStyle strutStyle,</br>
+        TextDirection textDirection,</br>
+        TextAlign textAlign = TextAlign.start,</br>
+        TextAlignVertical textAlignVertical,</br>
+        bool autofocus = false,</br>
+        bool readOnly = false,</br>
+        ToolbarOptions toolbarOptions,</br>
+        bool showCursor,</br>
+        bool obscureText = false,</br>
+        bool autocorrect = true,</br>
+        bool enableSuggestions = true,</br>
+        bool autovalidate = false,</br>
+        bool maxLengthEnforced = true,</br>
+        int maxLines = 1,</br>
+        int minLines,</br>
+        bool expands = false,</br>
+        int maxLength,</br>
+        ValueChanged<String> onChanged,</br>
+        GestureTapCallback onTap,</br>
+        VoidCallback onEditingComplete,</br>
+        ValueChanged<String> onFieldSubmitted,</br>
+        FormFieldSetter<String> onSaved,</br>
+        FormFieldValidator<String> validator,</br>
+        List<TextInputFormatter> inputFormatters,</br>
+        bool enabled = true,</br>
+        double cursorWidth = 2.0,</br>
+        Radius cursorRadius,</br>
+        Color cursorColor,</br>
+        Brightness keyboardAppearance,</br>
+        EdgeInsets scrollPadding = const EdgeInsets.all(20.0),</br>
+        bool enableInteractiveSelection = true,</br>
+        InputCounterWidgetBuilder buildCounter,</br>
+      })</br>
+    </br>
+      InputDecoration({</br>
+        this.icon,</br>
+        this.labelText,</br>
+        this.labelStyle,</br>
+        this.helperText,</br>
+        this.helperStyle,</br>
+        this.helperMaxLines,</br>
+        this.hintText,</br>
+        this.hintStyle,</br>
+        this.hintMaxLines,</br>
+        this.errorText,</br>
+        this.errorStyle,</br>
+        this.errorMaxLines,</br>
+        this.hasFloatingPlaceholder = true,</br>
+        this.isDense,</br>
+        this.contentPadding,</br>
+        this.prefixIcon,</br>
+        this.prefix,</br>
+        this.prefixText,</br>
+        this.prefixStyle,</br>
+        this.suffixIcon,</br>
+        this.suffix,</br>
+        this.suffixText,</br>
+        this.suffixStyle,</br>
+        this.counter,</br>
+        this.counterText,</br>
+        this.counterStyle,</br>
+        this.filled,</br>
+        this.fillColor,</br>
+        this.focusColor,</br>
+        this.hoverColor,</br>
+        this.errorBorder,</br>
+        this.focusedBorder,</br>
+        this.focusedErrorBorder,</br>
+        this.disabledBorder,</br>
+        this.enabledBorder,</br>
+        this.border,</br>
+        this.enabled = true,</br>
+        this.semanticCounterText,</br>
+        this.alignLabelWithHint,</br>
+      })</br>
+</p>
+
+
+<img src="https://miro.medium.com/max/397/1*YdlEidHatOGz_Bw68gkMUQ.jpeg" alt="There was supposed to be an image here"></br>
+
+<h3>Time to see full code</h3>
+<p class="code">
+    import 'package:flutter/material.dart';</br>
+    void main() => runApp(MyApp());</br>
+    class MyApp extends StatelessWidget {</br>
+        @override</br>
+        Widget build(BuildContext context) {</br>
+          final appTitle = 'Form Validation Demo';</br>
+          return MaterialApp(</br>
+            title: appTitle,</br>
+            home: Scaffold(</br>
+              appBar: AppBar(</br>
+                title: Text(appTitle),</br>
+              ),</br>
+              body: MyCustomForm(),</br>
+            ),</br>
+          );</br>
+        }</br>
+      }// Create a Form widget.</br>
+    </br>
+      class MyCustomForm extends StatefulWidget {</br>
+        @override</br>
+        MyCustomFormState createState() {</br>
+          return MyCustomFormState();</br>
+        }</br>
+      }// Create a corresponding State class.</br>
+      // This class holds data related to the form.</br>
+      class MyCustomFormState extends State<MyCustomForm> {</br>
+        // Create a global key that uniquely identifies the Form widget</br>
+        // and allows validation of the form.</br>
+        //</br>
+        // Note: This is a GlobalKey<FormState>,</br>
+        // not a GlobalKey<MyCustomFormState>.</br>
+        final _formKey = GlobalKey<FormState>();</br>
+            @override</br>
+        Widget build(BuildContext context) {</br>
+          // Build a Form widget using the _formKey created above.</br>
+          return Form(</br>
+            key: _formKey,</br>
+            child: Column(</br>
+              crossAxisAlignment: CrossAxisAlignment.start,</br>
+              children: <Widget>[</br>
+                TextFormField(</br>
+                  validator: (value) {</br>
+                    if (value.isEmpty) {</br>
+                      return 'Please enter some text';</br>
+                    }</br>
+                    return null;</br>
+                  },</br>
+                ),</br>
+                Padding(</br>
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),</br>
+                  child: RaisedButton(</br>
+                    onPressed: () {</br>
+                      // Validate returns true if the form is valid, or false</br>
+                      // otherwise.</br>
+                      if (_formKey.currentState.validate()) {</br>
+                        // If the form is valid, display a Snackbar.</br>
+                        Scaffold.of(context)</br>
+                            .showSnackBar(SnackBar(content: Text('Processing Data')));</br>
+                      }</br>
+                    },</br>
+                    child: Text('Submit'),</br>
+                  ),</br>
+                ),</br>
+              ],</br>
+            ),</br>
+          );</br>
+        }</br>
+      }</br>
+</p>
+
+<hr>
+
+
+  <!-- blog -->
+
+
+
+
+
+
+
+</body>
+</html>

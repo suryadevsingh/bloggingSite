@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=divice-width, initial-scale=1.0">
+  <title>CodePen - CodeMirror GitHub theme with Copy to clipboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="blogReadMore.css">
+<link rel="stylesheet" href="blogReadMore2.css">
+</head>
+<body>
+
+  <!-- blog -->
+
+  <div class="post">
+
+    <div class="date">26 November,2020</div>
+
+    <h2>Size matters: Reducing Flutter App size best practices</h2>
+
+    <img src="sizematters.png" height="100px" width="100px " alt="There was supposed to be an image here"></br>
+    
+    <p class="quote">2.6 million apps in the Google Play store today — no wonder convincing a user to install your app has never been more difficult. As if it wasn’t difficult enough already, plenty of your users have seen this dialogue — probably multiple times — as well:
+    </p>
+
+    <img src="https://miro.medium.com/max/385/1*UvU3f3iX-9GHpq_YE-NhfQ.png"alt="There was supposed to be an image here"></br>
+
+
+    <img src="https://media.giphy.com/media/YWLDUhxMbpPfY831Fn/giphy.gif" alt="There was supposed to be an image here"></br>
+
+    <p class="quote">
+        Let’s assume that you have a retail store and you ship an app to make the shopping experience smoother and quicker. You’ve added AR filters and applied Machine Learning to figure out your user's preferences and to tailor the experience. In other words, you’ve made a freakin’ awesome shopping app! Wow! It even supports Android 4.4 and 8 different languages. Good for you! </p>
+
+    <p class>
+        Now, how many people (especially from those that have a problem with the device storage space) do you think that they are going to download it if they see the following message?</p>
+
+        <img src="https://miro.medium.com/max/317/1*LXQDvVwxo6ehz68RMPkfgw.png"alt="There was supposed to be an image here"></br>
+        <p class="quote">
+            “more than 337 million smartphone users with limited data plans”</p>
+
+            <p>
+                So after all coding part, we do optimization and try to reduce the app size. In terms of optimization each and every bytes matter.
+            </p>
+    <p class="quote">
+        The download completion rate of an app with an APK size of around 10MB will be ~30% higher than an app with an APK size of 100MB
+    </p>
+
+<p>
+    There are many good coding practices and building a stable architecture will help the app to perform better. We can talk about it in detail in another article. Apart from that, there are some common methods and practices that you can implement in your app to make it better.
+</p>
+
+<img src="https://media.giphy.com/media/JrjtJpucu2Tw68KTAH/giphy.gif" alt="There was supposed to be an image here"></br>
+<h2>7 Flutter app Performance Tips</h2>
+<h3>1.Image Asset</h3>
+<p>
+    In Flutter people uses images from assets folder to display in the app. In development mode, this will be useful as the images are loaded faster. But when you bundle the app these images adds more weight to the app. The solution is of using network images. Upload the images in permanent storage path like AWS or in your website server and use the link to that image in your code.
+</p>
+
+<div class="code">
+  <p>
+    Image.network( 'https://picsum.photos/250?image=9',)
+  </p>
+</div>
+
+
+<p>Also, compress PNG and JPEG files before uploading them to your storage. The free online resource to compress the PNG image is </p>
+<a href="https://compresspng.com/.">https://compresspng.com/.</a>
+
+
+<h3>2.Use Google Fonts</h3>
+<p>
+  Initially, the flutter app can have custom font styles only assessing the font file from the assets folder. Similar to images these fonts will also increase app size. The best solution is using google_fonts a plugin. This plugin will dynamically download font when it is used and it will download it in a specific style and language so that you don’t need to ship all of the variations with your project.
+</p>
+
+<div class="code">
+  <p>
+    Text( </br>
+    'This is Google Fonts',</br>
+    style: GoogleFonts.lato(</br>
+      textStyle: Theme.of(context).textTheme.display1,</br>
+      fontSize: 48,</br>
+      fontWeight: FontWeight.w700,</br>
+      fontStyle: FontStyle.italic,</br>
+    ),</br>
+  ),
+  </p>
+</div>
+
+<h3>3. Icons</h3>
+<p>It is recommended to use from Material Icons or Cupertino Icons class. From Flutter 1.20, you can add --tree-shake-icons option to flutter build command, to remove all of the not used icons from the bundle. This will potentially save the size of your app.</p>
+</br>
+<P>But in many situations due to modern design you might need to use other icons. In that case use .svg format icon so you don’t need to worry about different device DPI’s and this also helps in reducing apk size.</P>
+<img src="https://miro.medium.com/max/573/1*jncxO1e8Alk9Gt0Uyy5XSg.png" alt="There was supposed to be an image here"></br>
+
+
+<h3>4. Dynamic App Delivery</h3>
+<p>We could build an app bundle if we are uploading to playstore or we could split the apk per abi which splits the apk to x64 and x86 bit code. By using appbundle Google Play’s new app serving model, called Dynamic Delivery, uses your app bundle to generate and serve optimized APKs for each user’s device configuration, so they download only the code and resources they need to run your app.</p>
+</br>
+<img src="https://miro.medium.com/max/422/1*a3wwAgVPyGq7vDcRM0qfxA.png" alt="There was supposed to be an image here"></br>
+<p>But some of the stores like Amazon App store still doesn’t support appbundle in that case you can use --split-per-abi command which will give you three version of apks.</p>
+
+<p class="quote">On average, apps published with app bundles are 20% smaller in size.</p>
+<p class="code">
+  flutter build appbundle</br>
+// or use</br>
+flutter build apk --split-per-abi
+</p>
+
+<h3>5. Cache</h3>
+<p>Using cache will not help in reducing app size but it will make the app to load faster and hence improving the app performance. All frequently used images like profile pic, bg picture using cached_network_image plugin.</p>
+
+<p>The cached_network_image package allows you to use any widget as a placeholder. In this example, display a spinner while the image loads.</p>
+<p class="code">
+  CachedNetworkImage(</br>
+  imageUrl: "http://via.placeholder.com/200x150",</br>
+  imageBuilder: (context, imageProvider) => Container(</br>
+    decoration: BoxDecoration(</br>
+      image: DecorationImage(</br>
+          image: imageProvider,</br>
+          fit: BoxFit.cover,</br>
+          colorFilter:</br>
+              ColorFilter.mode(Colors.red, BlendMode.colorBurn)),</br>
+    ),</br>
+  ),</br>
+  placeholder: (context, url) => CircularProgressIndicator(),</br>
+  errorWidget: (context, url, error) => Icon(Icons.error),</br>
+),</br>
+</p>
+
+<h3>6. Proguard</h3>
+<p>Proguard is a java program optimizer. It is not specific to Flutter. It optimizes your code in ways that don’t change the functionality but change the representation to make it more compact. It obfuscates name of types, fields, methods where the original name doesn’t matter such that long names are replaced with short strings like a and b for efficiency. Packages and classes may have a long name but should not hinder efficiency. It also removes unused java code from dependencies.</p>
+
+<p>You have two default proguard file you can apply.</p>
+<ul>
+  <li>proguard-android-optimize.txt — progurard configuration</li>
+  <li>proguard-android.txt</li>
+</ul>  
+<p>
+  We used proguard-android-optimize.txt as the default proguard configuration. You can add you custom proguard configurations in proguard-rules.pro file in your /app directory.
+</p>
+<p class="code">
+  release {
+    //Enable the proguard</br>
+    minifyEnabled true</br>
+    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), "proguard-rules.pro"</br>
+  </br>
+    //Other parameters</br>
+    debuggable false</br>
+    jniDebuggable false</br>
+    renderscriptDebuggable false</br>
+    signingConfig playStoreConfig //Add your own signing config</br>
+    pseudoLocalesEnabled false</br>
+    zipAlignEnabled true</br>
+}</br>
+</p>
+<p>
+  By setting minifyEnabled to true, the proguard will remove all the unused methods, instructions and slim down the classes.dex file.By enabling the proguard in every module of our project we can we are able to reduce the classes.dex file size almost by 50%.
+</p>
+
+<h3>7. Use Specific Libraries</h3>
+<p>Calling packages not needed or used in our pubspec.yaml file should be avoided. Once done building your app, you should check your pubspec.yaml and remove libraries/packages which is/are not used. Also remove all the unused assets from pubspec.yaml.
+</p>
+<p>
+  Also in certain situations due to unavailability of some features me might used some 3rd party plugins. But in some future update Flutter might have resolved it and had a built-in solution. In those case using default Flutter solution is a good practice than using the 3rd party plugins.
+</p>
+<!-- partial -->
+<!-- <script src='https://codemirror.net/addon/runmode/runmode-standalone.js'></script> -->
+<!-- <script src='https://codemirror.net/mode/javascript/javascript.js'></script> -->
+<!-- <script src='https://codemirror.net/mode/xml/xml.js'></script> -->
+<!-- <script src='https://codemirror.net/mode/jsx/jsx.js'></script> -->
+<!-- <script src='https://cdn.jsdelivr.net/clipboard.js/1.5.16/clipboard.min.js'></script> -->
+<!-- <script type="module" src="flutterBlog.js"></script> -->
+<!-- <script type="module" src="GoogleFonts.js"></script>  -->
+</div>
+
+<hr>
+
+
+  <!-- blog -->
+
+
+
+
+
+
+
+</body>
+</html>

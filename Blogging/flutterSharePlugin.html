@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=divice-width, initial-scale=1.0">
+  <title>CodePen - CodeMirror GitHub theme with Copy to clipboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="blogReadMore.css">
+<link rel="stylesheet" href="blogReadMore2.css">
+</head>
+<body>
+
+  <!-- blog -->
+
+  <div class="post">
+
+    <div class="date">26 November,2020</div>
+
+    <h2>Share Content with the Flutter Share Plugin</h2>
+
+    <img src="https://miro.medium.com/max/459/1*vajJ7l6n8MuVB6Xe2IGRAA.jpeg" height="100px" width="100px " alt="There was supposed to be an image here"></br>
+    
+    <p>
+        Are you creating a Flutter application that has content users may want to share with their friends or coworkers? Take advantage of the native platform share dialog using the share plugin. Let’s see how it’s done. </p>
+
+    <img src="https://media.giphy.com/media/xT0xehxwagcgaqpNf2/giphy.gif" alt="There was supposed to be an image here"></br>
+
+<h3>Adding the Share plugin</h3>
+
+<p>
+    Head over to your pubspec.yaml and add the following plugin:</p>
+
+<div class="code">
+  <p>dependencies:</br>
+    flutter:</br>
+      sdk: flutter</br>
+    </br>
+    share: any</br>
+  </p>
+</div>
+<h4>Add the following imports to your Dart code:</h4>
+
+<p class="code">import 'package:share/share.dart';</p>
+
+<h3>Adding the Share functionality</h3>
+<p>In order to make it so that whenever the user clicks on a widget, we’ll hook into the onTap functionality, calling a share function:</p>
+<p class="code">
+    String text = 'https://medium.com/@suryadevsingh24032000';</br>
+String subject = 'follow me';
+</p>
+
+<p>In this package you can add only two texts or String but you can configure it.</p>
+
+<p class="code">
+    RaisedButton(</br>
+  child:  Text('Share'),</br>
+  onPressed: ()</br>
+                {</br>
+                  final RenderBox box = context.findRenderObject();</br>
+                  Share.share(text,</br>
+                      subject: subject,</br>
+                      sharePositionOrigin:</br>
+                      box.localToGlobal(Offset.zero) &</br>
+                      box.size);</br>
+                },</br>
+);
+</p>
+
+<h3>Excited about how it looks in practical</h3>
+
+<img src="https://miro.medium.com/max/211/1*rlj6QhFBlrS4u-asmz81-Q.gif" alt="There was supposed to be an image here"></br>
+
+
+<hr>
+
+
+  <!-- blog -->
+
+
+
+
+
+
+
+</body>
+</html>
